@@ -1,0 +1,2 @@
+module pg.jreleaser {
+}

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>dmk.pg.jreleaser</groupId>
+    <artifactId>pg-jreleaser-package</artifactId>
+    <version>1.0-TEST</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>tru</addClasspath>
+                            <mainClass>dmk.pg.jreleaser.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release-local</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jreleaser</groupId>
+                        <artifactId>jreleaser-maven-plugin</artifactId>
+                        <version>1.1.0</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>config</goal>
+                                    <goal>assemble</goal>
+                                </goals>
+                                <configuration>
+                                    <jreleaser>
+                                        <assemble>
+                                            <jlink>
+                                                <drd-app-jlink>
+                                                    <active>RELEASE</active>
+                                                    <imageName>${project.parent.artifactId}-${project.version}</imageName>
+                                                    <executable>${project.parent.artifactId}</executable>
+                                                    <exported>false</exported>
+                                                    <mainJar>
+                                                        <path>${project.build.directory}/dist/${project.parent.artifactId}-${project.version}.jar</path>
+                                                    </mainJar>
+                                                    <moduleNames>
+                                                        <moduleName>java.base</moduleName>
+                                                        <!--                                                        <moduleName>java.desktop</moduleName>-->
+                                                        <!--                                                        <moduleName>java.instrument</moduleName>-->
+                                                        <!--                                                        <moduleName>java.management</moduleName>-->
+                                                        <!--                                                        <moduleName>java.prefs</moduleName>-->
+                                                        <!--                                                        <moduleName>java.rmi</moduleName>-->
+                                                        <!--                                                        <moduleName>java.scripting</moduleName>-->
+                                                        <!--                                                        <moduleName>java.security.jgss</moduleName>-->
+                                                        <!--                                                        <moduleName>java.sql.rowset</moduleName>-->
+                                                        <!--                                                        <moduleName>jdk.attach</moduleName>-->
+                                                        <!--                                                        <moduleName>jdk.httpserver</moduleName>-->
+                                                        <!--                                                        <moduleName>jdk.jdi</moduleName>-->
+                                                        <!--                                                        <moduleName>jdk.jfr</moduleName>-->
+                                                        <!--                                                        <moduleName>jdk.unsupported</moduleName>-->
+                                                    </moduleNames>
+                                                </drd-app-jlink>
+                                            </jlink>
+                                            <!--                                            <jpackage>-->
+                                            <!--                                                <app>-->
+                                            <!--                                                    <active>RELEASE</active>-->
+                                            <!--                                                    <imageName>${project.parent.artifactId}-${project.version}</imageName>-->
+                                            <!--                                                    <executable>${project.parent.artifactId}</executable>-->
+                                            <!--                                                    <exported>true</exported>-->
+                                            <!--                                                    <jlink>drd-app-jlink</jlink>-->
+                                            <!--                                                    <windows>-->
+                                            <!--                                                        <types>exe</types>-->
+                                            <!--                                                    </windows>-->
+                                            <!--                                                </app>-->
+                                            <!--                                            </jpackage>-->
+                                        </assemble>
+                                    </jreleaser>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
