@@ -1,0 +1,11 @@
+--module-path .\target\classes
+--module dmk.pg.jreleaser/dmk.pg.jreleaser.Main
+--name dmk-jreleaser
+--win-dir-chooser
+--app-version 0.1
+--install-dir dmk-jreleaser
+--copyright "Copyright 2020 DMK, Czechia"
+--vendor DMK
+--win-menu
+--win-shortcut
+--win-menu-group DMK

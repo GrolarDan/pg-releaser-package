@@ -1,2 +1,2 @@
-module pg.jreleaser {
+module dmk.pg.jreleaser {
 }
