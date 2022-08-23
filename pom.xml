@@ -6,7 +6,7 @@
 
     <groupId>dmk.pg.jreleaser</groupId>
     <artifactId>pg-jreleaser-package</artifactId>
-    <version>1.0-TEST</version>
+    <version>1.0</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -23,7 +23,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <addClasspath>tru</addClasspath>
+                            <addClasspath>true</addClasspath>
                             <mainClass>dmk.pg.jreleaser.Main</mainClass>
                         </manifest>
                     </archive>
@@ -50,24 +50,34 @@
                                 </goals>
                                 <configuration>
                                     <jreleaser>
+                                        <project>
+                                            <description>Application to test JReleaser</description>
+                                            <copyright>2022 Daniel Masek</copyright>
+                                            <java>
+                                                <mainModule>dmk.pg.jreleaser</mainModule>
+                                                <mainClass>dmk.pg.jreleaser.Main</mainClass>
+                                            </java>
+                                        </project>
                                         <assemble>
-<!--                                            <jlink>-->
-<!--                                                <app-jlink>-->
-<!--                                                    <active>RELEASE</active>-->
-<!--                                                    <imageName>${project.artifactId}-${project.version}</imageName>-->
-<!--                                                    <executable>${project.artifactId}</executable>-->
-<!--                                                    <exported>false</exported>-->
-<!--                                                    <mainJar>-->
-<!--                                                        <path>${project.build.directory}/${project.artifactId}-${project.version}.jar</path>-->
-<!--                                                    </mainJar>-->
-<!--                                                    <moduleNames>-->
-<!--                                                        <moduleName>java.base</moduleName>-->
-<!--                                                    </moduleNames>-->
-<!--                                                </app-jlink>-->
-<!--                                            </jlink>-->
+                                            <jlink>
+                                                <app-jlink>
+                                                    <active>RELEASE</active>
+                                                    <imageName>${project.artifactId}-${project.version}</imageName>
+                                                    <executable>${project.artifactId}</executable>
+                                                    <exported>false</exported>
+                                                    <mainJar>
+                                                        <path>${project.build.directory}/${project.artifactId}-${project.version}.jar</path>
+                                                    </mainJar>
+                                                </app-jlink>
+                                            </jlink>
                                             <jpackage>
                                                 <app>
                                                     <active>RELEASE</active>
+                                                    <jlink>app-jlink</jlink>
+                                                    <applicationPackage>
+                                                        <vendor>MASCI</vendor>
+                                                        <appVersion>1.0</appVersion>
+                                                    </applicationPackage>
                                                     <launchers>
                                                         <launcher>dmk=./jpackage.properties</launcher>
                                                     </launchers>
@@ -76,10 +86,6 @@
                                                         <installDir>dmk-jreleaser</installDir>
                                                         <dirChooser>true</dirChooser>
                                                     </windows>
-                                                    <java>
-                                                        <mainModule>dmk.pg.jreleaser</mainModule>
-                                                        <mainClass>dmk.pg.jreleaser.Main</mainClass>
-                                                    </java>
                                                 </app>
                                             </jpackage>
                                         </assemble>
