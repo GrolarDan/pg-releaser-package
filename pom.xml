@@ -45,7 +45,6 @@
                             <execution>
                                 <phase>package</phase>
                                 <goals>
-                                    <goal>config</goal>
                                     <goal>assemble</goal>
                                 </goals>
                                 <configuration>
@@ -78,13 +77,18 @@
                                                         <vendor>MASCI</vendor>
                                                         <appVersion>1.0</appVersion>
                                                     </applicationPackage>
-                                                    <launchers>
-                                                        <launcher>dmk=./jpackage.properties</launcher>
-                                                    </launchers>
+                                                    <launcher>
+														<launchers>
+															<launcher>dmk=./jpackage.properties</launcher>
+														</launchers>
+													</launcher>
                                                     <windows>
                                                         <appName>dmk-jreleaser</appName>
                                                         <installDir>dmk-jreleaser</installDir>
                                                         <dirChooser>true</dirChooser>
+														<types>exe</types>
+														<console>true</console>
+														<menu>true</menu>
                                                     </windows>
                                                 </app>
                                             </jpackage>
