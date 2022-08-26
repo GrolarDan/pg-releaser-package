@@ -46,6 +46,7 @@
                                 <phase>package</phase>
                                 <goals>
                                     <goal>assemble</goal>
+                                    <goal>full-release</goal>
                                 </goals>
                                 <configuration>
                                     <jreleaser>
@@ -56,6 +57,10 @@
                                                 <mainModule>dmk.pg.jreleaser</mainModule>
                                                 <mainClass>dmk.pg.jreleaser.Main</mainClass>
                                             </java>
+                                            <website>https://github.com/GrolarDan/pg-releaser-package</website>
+                                            <docsUrl>https://github.com/GrolarDan/pg-releaser-package</docsUrl>
+                                            <license>GPL-3.0-or-later</license>
+                                            <authors>Daniel Masek</authors>
                                         </project>
                                         <assemble>
                                             <jlink>
