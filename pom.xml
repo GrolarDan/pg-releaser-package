@@ -64,7 +64,7 @@
                                         </project>
                                         <assemble>
                                             <jlink>
-                                                <app-jlink>
+                                                <dmk-app-jlink>
                                                     <active>RELEASE</active>
                                                     <imageName>${project.artifactId}-${project.version}</imageName>
                                                     <executable>${project.artifactId}</executable>
@@ -72,12 +72,12 @@
                                                     <mainJar>
                                                         <path>${project.build.directory}/${project.artifactId}-${project.version}.jar</path>
                                                     </mainJar>
-                                                </app-jlink>
+                                                </dmk-app-jlink>
                                             </jlink>
                                             <jpackage>
-                                                <app>
+                                                <dmk-app>
                                                     <active>RELEASE</active>
-                                                    <jlink>app-jlink</jlink>
+                                                    <jlink>dmk-app-jlink</jlink>
                                                     <applicationPackage>
                                                         <vendor>MASCI</vendor>
                                                         <appVersion>${project.version}</appVersion>
@@ -94,28 +94,28 @@
                                                         <console>true</console>
                                                         <menu>true</menu>
                                                     </windows>
-                                                </app>
+                                                </dmk-app>
                                             </jpackage>
                                         </assemble>
                                         <distributions>
-                                            <drd-app>
+                                            <dmk-app>
                                                 <active>RELEASE</active>
                                                 <type>NATIVE_PACKAGE</type>
                                                 <artifacts>
                                                     <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.parent.artifactId}-${project.version}.deb</path>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.artifactId}-${project.version}.deb</path>
                                                         <platform>linux_musl</platform>
                                                     </artifact>
                                                     <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.parent.artifactId}-${project.version}.rpm</path>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.artifactId}-${project.version}.rpm</path>
                                                         <platform>linux_musl</platform>
                                                     </artifact>
                                                     <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.parent.artifactId}-${project.version}.msi</path>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.artifactId}-${project.version}.msi</path>
                                                         <platform>windows</platform>
                                                     </artifact>
                                                 </artifacts>
-                                            </drd-app>
+                                            </dmk-app>
                                         </distributions>
                                     </jreleaser>
                                 </configuration>
