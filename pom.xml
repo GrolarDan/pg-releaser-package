@@ -12,6 +12,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <appName>dmk-jreleaser</appName>
     </properties>
 
     <build>
@@ -84,13 +85,14 @@
                                                     </applicationPackage>
                                                     <linux>
                                                         <types>deb,rpm</types>
+                                                        <appName>${appName}</appName>
                                                         <maintainer>daniel@masci.cz</maintainer>
                                                     </linux>
                                                     <windows>
-                                                        <appName>dmk-jreleaser</appName>
-                                                        <installDir>dmk-jreleaser</installDir>
-                                                        <dirChooser>true</dirChooser>
                                                         <types>msi</types>
+                                                        <appName>${appName}</appName>
+                                                        <installDir>${appName}</installDir>
+                                                        <dirChooser>true</dirChooser>
                                                         <console>true</console>
                                                         <menu>true</menu>
                                                     </windows>
@@ -103,15 +105,15 @@
                                                 <type>NATIVE_PACKAGE</type>
                                                 <artifacts>
                                                     <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.artifactId}-${project.version}-1_amd64.deb</path>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}-${project.version}-1_amd64.deb</path>
                                                         <platform>linux_musl</platform>
                                                     </artifact>
                                                     <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.artifactId}-${project.version}-1.x86_64.rpm</path>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}-${project.version}-1.x86_64.rpm</path>
                                                         <platform>linux_musl</platform>
                                                     </artifact>
                                                     <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.artifactId}-${project.version}.msi</path>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}-${project.version}.msi</path>
                                                         <platform>windows</platform>
                                                     </artifact>
                                                 </artifacts>
