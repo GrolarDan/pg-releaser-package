@@ -64,4 +64,4 @@ jobs:
 
     - name: List created packages
       run: |
-        ls -la target/jreleaser/assemble/dmk-app/jpackage
+        ls target/jreleaser/assemble/dmk-app/jpackage
