@@ -62,6 +62,6 @@ jobs:
         JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: mvn -B package -Prelease -Drevision=${{ needs.version.outputs.version}} --file pom.xml
 
-    - name: Display JReleaser output
-      run: |
-        cat /home/runner/work/drd-application/drd-application/app/target/jreleaser/trace.log
+#    - name: Display JReleaser output
+#      run: |
+#        cat /home/runner/work/drd-application/drd-application/app/target/jreleaser/trace.log

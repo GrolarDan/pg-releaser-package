@@ -34,7 +34,7 @@
 
     <profiles>
         <profile>
-            <id>release-local</id>
+            <id>release</id>
             <build>
                 <plugins>
                     <plugin>
