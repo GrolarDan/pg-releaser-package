@@ -47,7 +47,7 @@
                                 <phase>package</phase>
                                 <goals>
                                     <goal>assemble</goal>
-                                    <goal>full-release</goal>
+<!--                                    <goal>full-release</goal>-->
                                 </goals>
                                 <configuration>
                                     <jreleaser>
@@ -80,12 +80,12 @@
                                                     <active>RELEASE</active>
                                                     <jlink>dmk-app-jlink</jlink>
                                                     <applicationPackage>
+                                                        <appName>${appName}</appName>
                                                         <vendor>MASCI</vendor>
                                                         <appVersion>${project.version}</appVersion>
                                                     </applicationPackage>
                                                     <linux>
                                                         <types>deb,rpm</types>
-                                                        <appName>${appName}</appName>
                                                         <maintainer>daniel@masci.cz</maintainer>
                                                     </linux>
                                                     <windows>
@@ -105,7 +105,7 @@
                                                 <type>NATIVE_PACKAGE</type>
                                                 <artifacts>
                                                     <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}-${project.version}-1_amd64.deb</path>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}_${project.version}-1_amd64.deb</path>
                                                         <platform>linux_musl</platform>
                                                     </artifact>
                                                     <artifact>
