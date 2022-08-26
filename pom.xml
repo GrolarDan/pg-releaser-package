@@ -81,17 +81,11 @@
                                                         <types>deb,rpm</types>
                                                         <maintainer>daniel@masci.cz</maintainer>
                                                     </linux>
-<!--                                                    <osx>-->
-<!--                                                        <types>pkg</types>-->
-<!--                                                        <appName>dmk-jreleaser</appName>-->
-<!--                                                        <packegeName>dmk-jreleaser</packegeName>-->
-<!--                                                        <packageIdentifier>dmk.pg.jreleaser</packageIdentifier>-->
-<!--                                                    </osx>-->
                                                     <windows>
                                                         <appName>dmk-jreleaser</appName>
                                                         <installDir>dmk-jreleaser</installDir>
                                                         <dirChooser>true</dirChooser>
-														<types>exe</types>
+														<types>msi</types>
 														<console>true</console>
 														<menu>true</menu>
                                                     </windows>
