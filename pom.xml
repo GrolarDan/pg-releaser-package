@@ -46,7 +46,7 @@
                                 <phase>package</phase>
                                 <goals>
                                     <goal>assemble</goal>
-<!--                                    <goal>full-release</goal>-->
+                                    <goal>full-release</goal>
                                 </goals>
                                 <configuration>
                                     <jreleaser>
@@ -103,11 +103,11 @@
                                                 <type>NATIVE_PACKAGE</type>
                                                 <artifacts>
                                                     <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.artifactId}-${project.version}.deb</path>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.artifactId}-${project.version}-1_amd64.deb</path>
                                                         <platform>linux_musl</platform>
                                                     </artifact>
                                                     <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.artifactId}-${project.version}.rpm</path>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.artifactId}-${project.version}-1.x86_64.rpm</path>
                                                         <platform>linux_musl</platform>
                                                     </artifact>
                                                     <artifact>
