@@ -65,6 +65,7 @@
                                         </project>
                                         <checksum>
                                             <individual>true</individual>
+                                            <name>checksums_${os.name}</name>
                                         </checksum>
                                         <release>
                                             <github>
