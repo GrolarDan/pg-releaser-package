@@ -46,7 +46,7 @@
                                 <phase>package</phase>
                                 <goals>
                                     <goal>assemble</goal>
-                                    <goal>full-release</goal>
+<!--                                    <goal>full-release</goal>-->
                                 </goals>
                                 <configuration>
                                     <jreleaser>
