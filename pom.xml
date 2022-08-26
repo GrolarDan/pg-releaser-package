@@ -75,13 +75,18 @@
                                                     <jlink>app-jlink</jlink>
                                                     <applicationPackage>
                                                         <vendor>MASCI</vendor>
-                                                        <appVersion>1.0</appVersion>
+                                                        <appVersion>${project.version}</appVersion>
                                                     </applicationPackage>
-                                                    <launcher>
-														<launchers>
-															<launcher>dmk=./jpackage.properties</launcher>
-														</launchers>
-													</launcher>
+                                                    <linux>
+                                                        <types>deb,rpm</types>
+                                                        <maintainer>daniel@masci.cz</maintainer>
+                                                    </linux>
+                                                    <osx>
+                                                        <types>pkg</types>
+                                                        <appName>dmk-jreleaser</appName>
+                                                        <packegeName>dmk-jreleaser</packegeName>
+                                                        <packageIdentifier>dmk.pg.jreleaser</packageIdentifier>
+                                                    </osx>
                                                     <windows>
                                                         <appName>dmk-jreleaser</appName>
                                                         <installDir>dmk-jreleaser</installDir>
