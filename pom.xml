@@ -67,6 +67,9 @@
                                             <github>
                                                 <tagName>${project.version}</tagName>
                                                 <releaseName>Release v${project.version}</releaseName>
+                                                <update>
+                                                    <enabled>true</enabled>
+                                                </update>
                                             </github>
                                         </release>
                                         <assemble>
