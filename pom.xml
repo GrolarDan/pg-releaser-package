@@ -63,6 +63,12 @@
                                             <license>GPL-3.0-or-later</license>
                                             <authors>Daniel Masek</authors>
                                         </project>
+                                        <release>
+                                            <github>
+                                                <tagName>${project.version}</tagName>
+                                                <releaseName>Release v${project.version}</releaseName>
+                                            </github>
+                                        </release>
                                         <assemble>
                                             <jlink>
                                                 <dmk-app-jlink>
@@ -99,26 +105,26 @@
                                                 </dmk-app>
                                             </jpackage>
                                         </assemble>
-                                        <distributions>
-                                            <dmk-app>
-                                                <active>RELEASE</active>
-                                                <type>NATIVE_PACKAGE</type>
-                                                <artifacts>
-                                                    <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}_${project.version}-1_amd64.deb</path>
-                                                        <platform>linux_musl</platform>
-                                                    </artifact>
-                                                    <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}-${project.version}-1.x86_64.rpm</path>
-                                                        <platform>linux_musl</platform>
-                                                    </artifact>
-                                                    <artifact>
-                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}-${project.version}.msi</path>
-                                                        <platform>windows</platform>
-                                                    </artifact>
-                                                </artifacts>
-                                            </dmk-app>
-                                        </distributions>
+<!--                                        <distributions>-->
+<!--                                            <dmk-app>-->
+<!--                                                <active>RELEASE</active>-->
+<!--                                                <type>NATIVE_PACKAGE</type>-->
+<!--                                                <artifacts>-->
+<!--                                                    <artifact>-->
+<!--                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}_${project.version}-1_amd64.deb</path>-->
+<!--                                                        <platform>linux_musl</platform>-->
+<!--                                                    </artifact>-->
+<!--                                                    <artifact>-->
+<!--                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}-${project.version}-1.x86_64.rpm</path>-->
+<!--                                                        <platform>linux_musl</platform>-->
+<!--                                                    </artifact>-->
+<!--                                                    <artifact>-->
+<!--                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}-${project.version}.msi</path>-->
+<!--                                                        <platform>windows</platform>-->
+<!--                                                    </artifact>-->
+<!--                                                </artifacts>-->
+<!--                                            </dmk-app>-->
+<!--                                        </distributions>-->
                                     </jreleaser>
                                 </configuration>
                             </execution>
