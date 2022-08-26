@@ -35,7 +35,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+#        os: [ubuntu-latest, macOS-latest, windows-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     needs: version
 
@@ -60,7 +61,7 @@ jobs:
     - name: Build with Maven
       env:
         JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: mvn -B package -Prelease -Drevision=${{ needs.version.outputs.version}} --file pom.xml
+      run: mvn -B package -Prelease -Drevision="${{ needs.version.outputs.version }}" --file pom.xml
 
 #    - name: Display JReleaser output
 #      run: |
