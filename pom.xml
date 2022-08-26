@@ -85,13 +85,33 @@
                                                         <appName>dmk-jreleaser</appName>
                                                         <installDir>dmk-jreleaser</installDir>
                                                         <dirChooser>true</dirChooser>
-														<types>msi</types>
-														<console>true</console>
-														<menu>true</menu>
+                                                        <types>msi</types>
+                                                        <console>true</console>
+                                                        <menu>true</menu>
                                                     </windows>
                                                 </app>
                                             </jpackage>
                                         </assemble>
+                                        <distributions>
+                                            <drd-app>
+                                                <active>RELEASE</active>
+                                                <type>NATIVE_PACKAGE</type>
+                                                <artifacts>
+                                                    <artifact>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.parent.artifactId}-${project.version}.deb</path>
+                                                        <platform>linux_musl</platform>
+                                                    </artifact>
+                                                    <artifact>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.parent.artifactId}-${project.version}.rpm</path>
+                                                        <platform>linux_musl</platform>
+                                                    </artifact>
+                                                    <artifact>
+                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${project.parent.artifactId}-${project.version}.msi</path>
+                                                        <platform>windows</platform>
+                                                    </artifact>
+                                                </artifacts>
+                                            </drd-app>
+                                        </distributions>
                                     </jreleaser>
                                 </configuration>
                             </execution>
