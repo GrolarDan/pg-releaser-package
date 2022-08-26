@@ -35,7 +35,7 @@
 
     <profiles>
         <profile>
-            <id>release</id>
+            <id>assemble</id>
             <build>
                 <plugins>
                     <plugin>
@@ -63,6 +63,9 @@
                                             <license>GPL-3.0-or-later</license>
                                             <authors>Daniel Masek</authors>
                                         </project>
+                                        <checksum>
+                                            <individual>true</individual>
+                                        </checksum>
                                         <release>
                                             <github>
                                                 <tagName>${project.version}</tagName>
@@ -108,26 +111,6 @@
                                                 </dmk-app>
                                             </jpackage>
                                         </assemble>
-<!--                                        <distributions>-->
-<!--                                            <dmk-app>-->
-<!--                                                <active>RELEASE</active>-->
-<!--                                                <type>NATIVE_PACKAGE</type>-->
-<!--                                                <artifacts>-->
-<!--                                                    <artifact>-->
-<!--                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}_${project.version}-1_amd64.deb</path>-->
-<!--                                                        <platform>linux_musl</platform>-->
-<!--                                                    </artifact>-->
-<!--                                                    <artifact>-->
-<!--                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}-${project.version}-1.x86_64.rpm</path>-->
-<!--                                                        <platform>linux_musl</platform>-->
-<!--                                                    </artifact>-->
-<!--                                                    <artifact>-->
-<!--                                                        <path>{{ assembleDirectory }}/{{ distributionName }}/jpackage/${appName}-${project.version}.msi</path>-->
-<!--                                                        <platform>windows</platform>-->
-<!--                                                    </artifact>-->
-<!--                                                </artifacts>-->
-<!--                                            </dmk-app>-->
-<!--                                        </distributions>-->
                                     </jreleaser>
                                 </configuration>
                             </execution>
