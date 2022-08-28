@@ -47,7 +47,6 @@
                                 <phase>package</phase>
                                 <goals>
                                     <goal>assemble</goal>
-                                    <goal>full-release</goal>
                                 </goals>
                                 <configuration>
                                     <jreleaser>
@@ -63,19 +62,6 @@
                                             <license>GPL-3.0-or-later</license>
                                             <authors>Daniel Masek</authors>
                                         </project>
-                                        <checksum>
-                                            <individual>true</individual>
-                                            <name>checksums_${os.name}</name>
-                                        </checksum>
-                                        <release>
-                                            <github>
-                                                <tagName>${project.version}</tagName>
-                                                <releaseName>Release v${project.version}</releaseName>
-                                                <update>
-                                                    <enabled>true</enabled>
-                                                </update>
-                                            </github>
-                                        </release>
                                         <assemble>
                                             <jlink>
                                                 <dmk-app-jlink>
@@ -112,6 +98,55 @@
                                                 </dmk-app>
                                             </jpackage>
                                         </assemble>
+                                    </jreleaser>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jreleaser</groupId>
+                        <artifactId>jreleaser-maven-plugin</artifactId>
+                        <version>1.1.0</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>full-release</goal>
+                                </goals>
+                                <configuration>
+                                    <jreleaser>
+                                        <project>
+                                            <description>Application to test JReleaser</description>
+                                            <copyright>2022 Daniel Masek</copyright>
+                                            <java>
+                                                <mainModule>dmk.pg.jreleaser</mainModule>
+                                                <mainClass>dmk.pg.jreleaser.Main</mainClass>
+                                            </java>
+                                            <website>https://github.com/GrolarDan/pg-releaser-package</website>
+                                            <docsUrl>https://github.com/GrolarDan/pg-releaser-package</docsUrl>
+                                            <license>GPL-3.0-or-later</license>
+                                            <authors>Daniel Masek</authors>
+                                        </project>
+                                        <checksum>
+                                            <individual>true</individual>
+                                            <name>checksums_${os.name}</name>
+                                        </checksum>
+                                        <release>
+                                            <github>
+                                                <tagName>${project.version}</tagName>
+                                                <releaseName>Release v${project.version}</releaseName>
+                                                <update>
+                                                    <enabled>true</enabled>
+                                                </update>
+                                            </github>
+                                        </release>
                                     </jreleaser>
                                 </configuration>
                             </execution>
