@@ -60,7 +60,7 @@ jobs:
     - name: Build with Maven
       env:
         JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: mvn -B package -Passemble,release -Drevision="${{ needs.version.outputs.version }}" --file pom.xml
+      run: mvn -B package -Passemble -Prelease -Drevision="${{ needs.version.outputs.version }}" --file pom.xml
 
     - name: List created packages
       run: |
