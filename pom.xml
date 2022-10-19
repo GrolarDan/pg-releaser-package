@@ -8,14 +8,70 @@
     <artifactId>pg-jreleaser-package</artifactId>
     <version>${revision}</version>
 
+    <!-- Project name, description and URL -->
+    <name>PlayGround - Releaser app</name>
+    <description>A demo for deployment application to GitHub with JReleaser plugin</description>
+    <url>https://github.com/GrolarDan/pg-releaser-package</url>
+    <inceptionYear>2022</inceptionYear>
+
+    <!-- License Information -->
+    <licenses>
+        <license>
+            <name>GNU GPL v3.0</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+        </license>
+    </licenses>
+
+    <!-- Developer Information-->
+    <developers>
+        <developer>
+            <name>Daniel Mašek</name>
+            <email>daniel@masci.cz</email>
+            <organization>MASCI-CZ</organization>
+            <organizationUrl>https://github.com/masci-cz</organizationUrl>
+            <roles>
+                <role>author</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <!-- Source Code Management information -->
+    <scm>
+        <connection>scm:git:git://github.com/GrolarDan/pg-releaser-package.git</connection>
+        <developerConnection>scm:git:https://github.com/GrolarDan/pg-releaser-package.git</developerConnection>
+        <url>https://github.com/GrolarDan/pg-releaser-package.git/tree/master</url>
+        <tag>HEAD</tag>
+    </scm>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <appName>dmk-jreleaser</appName>
+
+        <jreleaser.version>1.2.0</jreleaser.version>
     </properties>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jreleaser</groupId>
+                    <artifactId>jreleaser-maven-plugin</artifactId>
+                    <version>${jreleaser.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -41,7 +97,7 @@
                     <plugin>
                         <groupId>org.jreleaser</groupId>
                         <artifactId>jreleaser-maven-plugin</artifactId>
-                        <version>1.1.0</version>
+                        <version>${jreleaser.version}</version>
                         <executions>
                             <execution>
                                 <phase>package</phase>
@@ -51,16 +107,10 @@
                                 <configuration>
                                     <jreleaser>
                                         <project>
-                                            <description>Application to test JReleaser</description>
-                                            <copyright>2022 Daniel Masek</copyright>
                                             <java>
                                                 <mainModule>dmk.pg.jreleaser</mainModule>
                                                 <mainClass>dmk.pg.jreleaser.Main</mainClass>
                                             </java>
-                                            <website>https://github.com/GrolarDan/pg-releaser-package</website>
-                                            <docsUrl>https://github.com/GrolarDan/pg-releaser-package</docsUrl>
-                                            <license>GPL-3.0-or-later</license>
-                                            <authors>Daniel Masek</authors>
                                         </project>
                                         <assemble>
                                             <jlink>
@@ -113,26 +163,20 @@
                     <plugin>
                         <groupId>org.jreleaser</groupId>
                         <artifactId>jreleaser-maven-plugin</artifactId>
-                        <version>1.1.0</version>
+                        <version>${jreleaser.version}</version>
                         <executions>
                             <execution>
-                                <phase>package</phase>
+                                <phase>deploy</phase>
                                 <goals>
                                     <goal>full-release</goal>
                                 </goals>
                                 <configuration>
                                     <jreleaser>
                                         <project>
-                                            <description>Application to test JReleaser</description>
-                                            <copyright>2022 Daniel Masek</copyright>
                                             <java>
                                                 <mainModule>dmk.pg.jreleaser</mainModule>
                                                 <mainClass>dmk.pg.jreleaser.Main</mainClass>
                                             </java>
-                                            <website>https://github.com/GrolarDan/pg-releaser-package</website>
-                                            <docsUrl>https://github.com/GrolarDan/pg-releaser-package</docsUrl>
-                                            <license>GPL-3.0-or-later</license>
-                                            <authors>Daniel Masek</authors>
                                         </project>
                                         <checksum>
                                             <individual>true</individual>
