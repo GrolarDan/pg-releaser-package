@@ -168,7 +168,7 @@
                             <execution>
                                 <phase>deploy</phase>
                                 <goals>
-                                    <goal>full-release</goal>
+                                    <goal>release</goal>
                                 </goals>
                                 <configuration>
                                     <jreleaser>
@@ -182,6 +182,9 @@
                                             <individual>true</individual>
                                             <name>checksums_${os.name}</name>
                                         </checksum>
+                                        <signing>
+                                            <active>RELEASE</active>
+                                        </signing>
                                         <release>
                                             <github>
                                                 <tagName>${project.version}</tagName>
