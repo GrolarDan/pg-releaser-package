@@ -2,6 +2,6 @@
 --module dmk.pg.jreleaser/dmk.pg.jreleaser.Main
 --name dmk-jreleaser
 --app-version 0.1
---install-dir dmk-jreleaser
+--install-dir /usr/bin/dmk-jreleaser
 --copyright "Copyright 2020 DMK, Czechia"
 --vendor DMK
