@@ -1,4 +1,4 @@
---module-path .\target\classes
+--module-path ./target/classes
 --module dmk.pg.jreleaser/dmk.pg.jreleaser.Main
 --name dmk-jreleaser
 --app-version 0.1
