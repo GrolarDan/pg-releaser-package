@@ -37,7 +37,7 @@ jobs:
 
       - name: Run jpackage tool
         run: |
-          jpackage --dest release --add-launcher DMK=jpackage.properties @jpackage.txt
+          jpackage --dest release --add-launcher DMK=jpackage.properties "@jpackage-${{ matrix.os }}.txt"
 
       - name: List created packages
         run: |
