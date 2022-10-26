@@ -3,7 +3,7 @@
 name: JPackage Workflow
 
 on:
-  workflow_dispatch:
+ push:
     branches:
       - refactor
 
@@ -33,7 +33,7 @@ jobs:
           JRELEASER_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           JRELEASER_GPG_PUBLIC_KEY: ${{ secrets.GPG_PUBLIC_KEY }}
           JRELEASER_GPG_SECRET_KEY: ${{ secrets.GPG_SECRET_KEY }}
-        run: mvn -B package -Drevision="${{ needs.version.outputs.version }}" --file pom.xml
+        run: mvn -B package -Drevision="0.1.4" --file pom.xml
 
       - name: Run jpackage tool
         run: |
