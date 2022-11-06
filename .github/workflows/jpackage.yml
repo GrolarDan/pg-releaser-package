@@ -3,9 +3,7 @@
 name: JPackage Workflow
 
 on:
- push:
-    branches:
-      - refactor
+  workflow_dispatch:
 
 jobs:
   jpackage:
