@@ -51,6 +51,8 @@
         <appName>dmk-jreleaser</appName>
 
         <jreleaser.version>1.3.0</jreleaser.version>
+        <!--suppress UnresolvedMavenProperty -->
+        <jreleaser.signing.mode>${env.JRELEASER_SIGNING_MODE}</jreleaser.signing.mode>
     </properties>
 
     <build>
@@ -184,6 +186,7 @@
                                         </checksum>
                                         <signing>
                                             <active>RELEASE</active>
+                                            <mode>${jreleaser.signing.mode}</mode>
                                         </signing>
                                         <release>
                                             <github>
